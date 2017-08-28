@@ -3,12 +3,13 @@
 
 using namespace std;
 
+// improve a bit on vanilla `get_next_i`
 vector<int> get_next_ii(string p) {
     int p_length = p.size();
     vector<int> next(p_length);
 
-    // i: first point
-    // j: last point
+    // `i`: first point
+    // `j`: last point
     int i = -1;
     int j = 0;
 
@@ -18,7 +19,7 @@ vector<int> get_next_ii(string p) {
         if (i==-1||p[i]==p[j]) {
             i++;
             j++;
-            // next.size() is same as p.size() 
+            // `next.size()` is same as `p.size()`
             if (j==p_length) break;
             if (p[i]!=p[j]) next[j] = i;
             else next[j] = next[i];
@@ -29,13 +30,13 @@ vector<int> get_next_ii(string p) {
     return next;
 }
 
-
+// vanilla next array for KMP
 vector<int> get_next_i(string p) {
     int p_length = p.size();
     vector<int> next(p_length);
 
-    // i: first point
-    // j: last point
+    // `i`: first point
+    // `j`: last point
     int i = -1;
     int j = 0;
 
@@ -45,7 +46,7 @@ vector<int> get_next_i(string p) {
         if (i==-1||p[i]==p[j]) {
             i++;
             j++;
-            // next.size() is same as p.size() 
+            // `next.size()` is same as `p.size()` 
             if (j==p_length) break;
             next[j] = i;
         }
