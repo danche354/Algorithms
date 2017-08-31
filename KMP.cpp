@@ -57,7 +57,7 @@ vector<int> get_next_i(string p) {
 }
 
 
-vector<string> KMP_match(string s, string p) {
+vector<string> KMP_split(string s, string p) {
     vector<string> res;
 
     int s_length = s.size();
@@ -96,7 +96,7 @@ vector<string> KMP_match(string s, string p) {
     return res;
 }
 
-vector<string> violence_match(string s, string p) {
+vector<string> violence_split(string s, string p) {
     vector<string> res;
 
     int s_length = s.size();
