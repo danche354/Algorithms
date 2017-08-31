@@ -91,14 +91,20 @@ vector<string> KMP_match(string s, string p) {
 }
 
 vector<string> violence_match(string s, string p) {
+    vector<string> res;
+
     int s_length = s.size();
     int p_length = p.size();
+
+    if (p_length==0) {
+        res.push_back(s);
+        return res;
+    }
 
     int i = 0;
     int j = 0;
     // record the substring start position
     int start = 0;
-    vector<string> res;
 
     while (i<s_length) {
         if (s[i]==p[j]) {
@@ -124,9 +130,9 @@ vector<string> violence_match(string s, string p) {
 
 
 int main() {
-    string s = "ABCDEECDdddddCDFCDGGDCCDCCCDCCDCDCDCDC";
-    string p = "CD";
-    vector<string> res = KMP_match(s, p);
+    string s = "CDCDCDCDCD";
+    string p = "";
+    vector<string> res = violence_match(s, p);
     for (int i=0; i<res.size(); i++) {
         cout<<res[i]<<" ";
     }
