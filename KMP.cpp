@@ -63,11 +63,10 @@ vector<string> KMP_match(string s, string p) {
     int s_length = s.size();
     int p_length = p.size();
 
-    if (p_length==0) {
+    if (p_length==0||s_length==0) {
         res.push_back(s);
         return res;
     }
-
 
     vector<int> next = get_next_ii(p);
 
@@ -103,7 +102,7 @@ vector<string> violence_match(string s, string p) {
     int s_length = s.size();
     int p_length = p.size();
 
-    if (p_length==0) {
+    if (p_length==0||s_length==0) {
         res.push_back(s);
         return res;
     }
@@ -136,14 +135,23 @@ vector<string> violence_match(string s, string p) {
 }
 
 
+// int main() {
+//     string s = "CDCDCDCDCD";
+//     string p = "";
+//     vector<string> res = violence_match(s, p);
+//     for (int i=0; i<res.size(); i++) {
+//         cout<<res[i]<<" ";
+//     }
+//     cout<<endl;
+//     return 0;
+// }
+
 int main() {
-    string s = "CDCDCDCDCD";
-    string p = "";
-    vector<string> res = violence_match(s, p);
-    for (int i=0; i<res.size(); i++) {
-        cout<<res[i]<<" ";
+    string p = "aaabcd";
+    vector<int> next = get_next_ii(p);
+    for (int i=0; i<next.size(); i++) {
+        cout<<next[i]<<" ";
     }
     cout<<endl;
     return 0;
 }
-
