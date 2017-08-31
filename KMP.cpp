@@ -58,8 +58,16 @@ vector<int> get_next_i(string p) {
 
 
 vector<string> KMP_match(string s, string p) {
+    vector<string> res;
+
     int s_length = s.size();
     int p_length = p.size();
+
+    if (p_length==0) {
+        res.push_back(s);
+        return res;
+    }
+
 
     vector<int> next = get_next_ii(p);
 
@@ -67,7 +75,6 @@ vector<string> KMP_match(string s, string p) {
     int j = 0;
     // record the substring start position
     int start = 0;
-    vector<string> res;
 
     while (i<s_length) {
         if (j==-1||s[i]==p[j]) {
